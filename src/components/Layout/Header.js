@@ -4,7 +4,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   return (
-    <header className="flex  align-baseline text-white justify-between  bg-red-500 p-8">
+    <header className="flex  align-baseline text-white justify-between  bg-primary p-8">
       <h1 className="px-56 font-bold  text-4xl tracking-wide text-shadow-md">
         EasyOrder
       </h1>
@@ -17,7 +17,7 @@ function Header() {
 
       <button
         type="button"
-        className=" mr-36 font-semibold  text-2xl ml-2"
+        className=" block  mr-36 font-semibold  text-2xl ml-2 rounded-md px-2  hover: "
       >
         <FontAwesomeIcon icon={faShoppingCart} /> Cart
       </button>
