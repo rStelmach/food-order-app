@@ -15,6 +15,8 @@ module.exports = {
         secondary: '#4A5859',
         danger: '#C83E4D',
         alt: '#F4B860',
+        border: '#4A5859',
+        fonty: '#F4D6CC',
       },
     },
   },

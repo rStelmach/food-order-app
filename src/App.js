@@ -1,10 +1,11 @@
 import Header from './components/Layout/Header';
+import Menu from './components/Menu/Menu';
 
 function App() {
   return (
     <div>
       <Header />
-      <h1 className="text-xl text-center p-48  ">Hi</h1>;
+      <Menu />
     </div>
   );
 }
