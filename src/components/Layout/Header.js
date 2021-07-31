@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import CartContext from '../store/cart-context';
+import CartContext from '../../store/cart-context';
 
 const Header = ({ onShow }) => {
   const cartCtx = useContext(CartContext);

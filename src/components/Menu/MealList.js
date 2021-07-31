@@ -1,4 +1,6 @@
-import MealItemForm from './MenuItemForm';
+import { useContext } from 'react';
+import MealItemForm from './MealItemForm';
+import CartContext from '../../store/cart-context';
 
 const DUMMY_MEALS = [
   {
@@ -27,14 +29,26 @@ const DUMMY_MEALS = [
   },
 ];
 
-const MealList = () => {
+const MealList = ({ id, name, price }) => {
+  const cartCtx = useContext(CartContext);
+
+  const addToCart = (amount) => {
+    cartCtx.addItem({
+      id,
+      name,
+      amount,
+      price,
+    });
+  };
   const meals = DUMMY_MEALS.map((meal) => (
     <li key={meal.id} className="bg-alt  m-4 p-3 rounded-xl">
       <div className="meal flex flex-col h-64 w-48 justify-end ">
         <h2 className="pb-4 pt-2">{meal.name}</h2>
         <h3 className="font-semibold pb-5 ">{meal.price}</h3>
         <p className="font-normal">{meal.description}</p>
-        <MealItemForm id={meal.id} />
+        <div>
+          <MealItemForm id={meal.id} onAddToCart={addToCart} />
+        </div>
       </div>
     </li>
   ));

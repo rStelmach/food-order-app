@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-const Context = React.createContext({
+const CartContext = React.createContext({
   items: [],
   totalAmount: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
 });
 
-export default Context;
+export default CartContext;
