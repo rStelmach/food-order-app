@@ -34,7 +34,7 @@ const MealList = () => {
         <h2 className="pb-4 pt-2">{meal.name}</h2>
         <h3 className="font-semibold pb-5 ">{meal.price}</h3>
         <p className="font-normal">{meal.description}</p>
-        <MealItemForm />
+        <MealItemForm id={meal.id} />
       </div>
     </li>
   ));

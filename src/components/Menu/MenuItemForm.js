@@ -1,11 +1,11 @@
 import Input from '../UI/Input';
 
-const MealItemForm = () => (
+const MealItemForm = ({ id }) => (
   <form className=" rounded-md ">
     <Input
       label="amount:"
       input={{
-        id: 'amount',
+        id: `amount_${id}`,
         type: 'number',
         min: 1,
         max: 4,

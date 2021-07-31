@@ -1,8 +1,7 @@
-// // import cart from '../../assets/cart.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => (
+const Header = ({ onShow }) => (
   <header className="flex  align-baseline text-white justify-between  bg-primary p-8">
     <h1 className="px-56 font-bold  text-4xl tracking-wide text-shadow-md">
       EasyOrder
@@ -18,6 +17,7 @@ const Header = () => (
 
     <button
       type="button"
+      onClick={onShow}
       className=" block  mr-36 font-semibold  text-2xl ml-2 rounded-md px-3 border-solid border-2 border-white "
     >
       <FontAwesomeIcon icon={faShoppingCart} /> Cart
