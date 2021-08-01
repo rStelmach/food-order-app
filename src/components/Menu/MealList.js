@@ -1,56 +1,41 @@
-import { useContext } from 'react';
-import MealItemForm from './MealItemForm';
-import CartContext from '../../store/cart-context';
+import MealItem from './MealItem';
 
 const DUMMY_MEALS = [
   {
     id: 'm1',
     name: 'Sushi',
-    description: 'Finest fish and veggies',
+    description: 'Fresh sushi maki with salmon',
     price: 22.99,
   },
   {
     id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
+    name: 'Pierogi',
+    description: 'Pierogi with cottage cheese ',
     price: 16.5,
   },
   {
     id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
+    name: 'Chipotle Burrito',
+    description: 'Classic tex-mex burrito',
     price: 12.99,
   },
   {
     id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
+    name: 'Pizza',
+    description: 'Salami pizza with fresh mozarella',
     price: 18.99,
   },
 ];
 
-const MealList = ({ id, name, price }) => {
-  const cartCtx = useContext(CartContext);
-
-  const addToCart = (amount) => {
-    cartCtx.addItem({
-      id,
-      name,
-      amount,
-      price,
-    });
-  };
+const MealList = () => {
   const meals = DUMMY_MEALS.map((meal) => (
-    <li key={meal.id} className="bg-alt  m-4 p-3 rounded-xl">
-      <div className="meal flex flex-col h-64 w-48 justify-end ">
-        <h2 className="pb-4 pt-2">{meal.name}</h2>
-        <h3 className="font-semibold pb-5 ">{meal.price}</h3>
-        <p className="font-normal">{meal.description}</p>
-        <div>
-          <MealItemForm id={meal.id} onAddToCart={addToCart} />
-        </div>
-      </div>
-    </li>
+    <MealItem
+      key={meal.id}
+      id={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
   ));
   return (
     <div>

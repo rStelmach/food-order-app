@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useReducer } from 'react';
 import CartContext from './cart-context';
 
@@ -9,15 +8,59 @@ const defaultState = {
 
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
-    const updatedItems = state.items.concat(action.item);
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
+
+    const existingIndex = state.items.findIndex(
+      (item) => item.id === action.item.id,
+    );
+    const existingItem = state.items[existingIndex];
+
+    let updatedItems;
+
+    if (existingItem) {
+      const updatedItem = {
+        ...existingItem,
+        amount: existingItem.amount + action.item.amount,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingIndex] = updatedItem;
+    } else {
+      updatedItems = state.items.concat(action.item);
+    }
+
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
   }
+  if (action.type === 'REMOVE') {
+    const existingIndex = state.items.findIndex(
+      (item) => item.id === action.id,
+    );
+    const existingItem = state.items[existingIndex];
 
+    const updatedTotalAmount = state.totalAmount - existingItem.price;
+
+    let updatedItems;
+
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter(
+        (item) => item.id !== action.id,
+      );
+    } else {
+      const updatedItem = {
+        ...existingItem,
+        amount: existingItem.amount - 1,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingIndex] = updatedItem;
+    }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
   return defaultState;
 };
 

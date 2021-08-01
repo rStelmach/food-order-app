@@ -25,7 +25,6 @@ const MealItemForm = ({ id, onAddToCart }) => {
     <form className=" rounded-md " onSubmit={submitForm}>
       <Input
         ref={amount}
-        label="amount:"
         input={{
           id: `amount_${id}`,
           type: 'number',
@@ -34,8 +33,8 @@ const MealItemForm = ({ id, onAddToCart }) => {
           default: 1,
         }}
       />
-      <button type="submit" className="font-bold py-1">
-        Add
+      <button type="submit" className="font-bold py-1 capitalize">
+        add
       </button>
     </form>
   );

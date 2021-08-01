@@ -15,8 +15,9 @@ const Header = ({ onShow }) => {
       <h1 className="px-56 font-bold  text-4xl tracking-wide text-shadow-md">
         EasyOrder
       </h1>
-      <nav>
-        <ul className="flex justify-between w-64 font-semibold  text-2xl text-shadow-sm ">
+
+      <nav className="flex ">
+        <ul className="flex justify-between w-64 font-semibold  text-2xl text-shadow-sm items-center">
           <li className="cursor-pointer">Menu</li>
           <li className="cursor-pointer">
             <a href="https://github.com/rStelmach"> GitHub</a>
@@ -29,7 +30,7 @@ const Header = ({ onShow }) => {
           onClick={onShow}
           className="block mr-36 font-semibold text-2xl  rounded-md py-4 border-solid border-2 w-48 border-white "
         >
-          <span className=" mr-3 px-2 text-danger border-2 border-danger rounded-full">
+          <span className=" mr-3 px-3  text-danger border-2 border-danger rounded-full">
             {cartItems}
           </span>
           <FontAwesomeIcon icon={faShoppingCart} /> Cart
