@@ -33,7 +33,7 @@ const MealItemForm = ({ id, onAddToCart }) => {
           default: 1,
         }}
       />
-      <button type="submit" className="font-bold py-1 capitalize">
+      <button type="submit" className="font-bold py-1 capitalize ">
         add
       </button>
     </form>
